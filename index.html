@@ -3,6 +3,15 @@
   <title>
     My Online Portfolio
   </title>
+  <meta charset = "UTF-8">
+  <meta name = "viewport" content = "width_device_width, initial-scale=1.0">
+  <script scr="https://cdn.jddelivr.net/npm/chart.js"></script>
+  <style>
+    .chart-container{
+      width:90%;
+      max-width:800;
+      margin:30 auto
+  </style>
 </head>
 <body>
   <h1 style="text-align:center;">
@@ -14,5 +23,42 @@
   <div style="text-align:center;" class="image">
     <img src = "https://th.bing.com/th/id/OIP.-zNI7naIWHC0zKkc7mymKQHaKf?w=132&h=180&c=7&r=0&o=7&pid=1.7&rm=3">
   </div>
+  <div class = "chart-container">
+    <canvas id = chart></canvas>
+  </div>
+  <script>
+    const ctx=doc.getElementById("chart");
+    new Chart(ctx,{
+      type: "line",
+      data: {
+        labels:["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        datasets:[{
+          label:"Anime Episodes watched", 
+          data:[3,1,2,0,0,2,3],
+
+          borderColor: "#0000FF",
+          bachgroundColor: "00FF00",
+          borderWidth:3,
+          fill:true,
+          tension:0.35,
+          pointRadius:4,
+          pointBackgroundColor:"FF0000"
+        }]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:true,
+
+        plugins:{
+          legend:{display:true
+                 }
+        },
+        scales:{
+          y:{beginAtZero:true
+            }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
